@@ -10,7 +10,7 @@ add_filter( 'arti_mpme_wcfm_vendor_shipping_fields', function( $fields, $vendor_
 	$fields['vendor_custom_services'] = [
 		'id' => '_me_vendor_free_service',
 		'name' => '_me_vendor_free_service',
-		'label' => 'Serviço a ser usado em caso de frete grátis.',
+		'label' => 'Serviço a ser usado em caso de frete grátis',
 		'type' => 'select',
 		'value' => $vendor_service_id,
 		'class' => 'wcfm-select wcfm_ele',
@@ -33,7 +33,7 @@ add_filter( 'arti_mpme_after_wcmp_shipping_fields', function( $vendor_id ){
 		[
 			'id' => '_me_vendor_free_service',
 			'name' => '_me_vendor_free_service',
-			'label' => 'Serviço a ser usado em caso de frete grátis.',
+			'label' => 'Serviço a ser usado em caso de frete grátis',
 			'value' => $vendor_service_id,
 			'options' => $services,
 			'desc' => 'Esse serviço será usado no momento de gerar etiquetas.',
@@ -50,7 +50,7 @@ add_filter( 'arti_mpme_after_dokan_shipping_fields', function( $vendor_id ){
    ?>
 	<div class="dokan-form-group">
 		<label class="dokan-w3 dokan-control-label" for="_me_vendor_free_service">
-			Serviço a ser usado em caso de frete grátis.
+			Serviço a ser usado em caso de frete grátis
 		</label>
 		<div class="dokan-w5 dokan-text-left">
 			<select class="dokan-form-control" id="_me_vendor_free_service" name="_me_vendor_free_service">
