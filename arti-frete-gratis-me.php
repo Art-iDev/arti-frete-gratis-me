@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Frete grátis/Melhor Envio
+ * Plugin Name: Frete grátis para Art-i Melhor Envio/Marketplace
  * Description:Converter frete grátis do vendedor em cotação do Melhor Envio
  * Plugin URI: https://art-idesenvolvimento.com.br
  * Author: Luis Eduardo Braschi
