@@ -21,9 +21,9 @@ add_action( 'arti_mpme_init', function(){
 
 add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
 
-    $free_sipping_methods = arti_fgme_get_accepted_methods();
+    $free_shipping_methods = arti_fgme_get_accepted_methods();
 
-    if( in_array( $method, $free_sipping_methods ) ){
+    if( in_array( $method, $free_shipping_methods ) ){
         return true;
     }
 
@@ -50,17 +50,16 @@ add_filter( 'arti_mpme_vendor_fields_to_save', function( $fields ){
 
 add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
-    $methods = wp_list_pluck( $rates, 'method_id' );
-
-    $free_sipping_methods = arti_fgme_get_accepted_methods();
-
     $service_id = 0;
 
     if( $vendor_service_id = get_user_meta( $package['vendor_id'] ?? 0, '_me_vendor_free_service', true ) ){
         $service_id = $vendor_service_id;
     }
 
-    $cart_has_free_shipping = (bool) count( array_intersect( $free_sipping_methods, $methods ) );
+    $free_shipping_methods = arti_fgme_get_accepted_methods();
+    $methods = wp_list_pluck( $rates, 'method_id' );
+
+    $cart_has_free_shipping = arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods );
 
     if( !$cart_has_free_shipping || !$service_id ){
         return $rates;
@@ -70,7 +69,13 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
         $rate_service_id = $rate->get_meta_data()['_service_id'] ?? 0;
 
-        if( in_array( $rate->get_method_id(), $free_sipping_methods ) ){
+        $method_id = explode( ':', $rate->get_id() );
+        $method_id = $method_id[0] ?? '';
+
+        if(
+            in_array( $rate->get_method_id(), $free_shipping_methods ) ||
+            in_array( $method_id, $free_shipping_methods )
+        ){
             $free_shipping_label = $rate->get_label();
             unset( $rates[$key] );
         }
@@ -94,4 +99,12 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
 function arti_fgme_get_accepted_methods(){
     return apply_filters( 'arti_frete_gratis_me_metodos', [ 'free_shipping' ] );
+}
+
+function arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods ){
+
+    $cart_has_free_shipping = (bool) count( array_intersect( $free_shipping_methods, $methods ) );
+
+    return apply_filters( 'arti_fgme_cart_has_free_shipping', $cart_has_free_shipping, $free_shipping_methods, $methods );
+
 }
