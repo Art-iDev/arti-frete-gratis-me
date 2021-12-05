@@ -60,43 +60,33 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
         $service_id = $vendor_service_id;
     }
 
-    $cart_has_free_shipping = (bool)count( array_intersect( $free_sipping_methods, $methods ) );
+    $cart_has_free_shipping = (bool) count( array_intersect( $free_sipping_methods, $methods ) );
 
     if( !$cart_has_free_shipping || !$service_id ){
         return $rates;
     }
 
-    $vendor_rate = null;
-    $meta_data_to_free_shipping_package = [];
-
     foreach( $rates as $key => &$rate ){
 
-        $rate_meta_data = $rate->get_meta_data();
+        $rate_service_id = $rate->get_meta_data()['_service_id'] ?? 0;
 
         if( in_array( $rate->get_method_id(), $free_sipping_methods ) ){
-            $vendor_rate = &$rate;
-        } else {
-
-            $hide_other_methods = apply_filters( 'arti_frete_gratis_me_esconder_outros_metodos', false );
-
-            if( $hide_other_methods ){
-                unset( $rates[$key] );
-            }
-
-        }
-
-        $rate_meta_service_id = $rate_meta_data['_service_id'] ?? -1;
-
-        if( (int) $rate_meta_service_id === (int) $service_id ){
-            $meta_data_to_free_shipping_package = $rate_meta_data;
+            $free_shipping_label = $rate->get_label();
             unset( $rates[$key] );
         }
 
+        if( (int) $rate_service_id === (int) $service_id ){
+
+            $rate->set_cost( 0 );
+
+            // Let's set it as the first rate later.
+            $free_shipping_rate = $rate;
+
+        }
+
     }
 
-    foreach( $meta_data_to_free_shipping_package as $key => $meta_data ){
-        $vendor_rate->add_meta_data( $key, $meta_data );
-    }
+    $free_shipping_rate->set_label( $free_shipping_label );
 
     return $rates;
 
