@@ -16,4 +16,4 @@ Crie uma regra ou cupom de frete grátis normalmente.
 
 ### Vendedor
 
-O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - ele quer usar para enviar os pacotes vendidos com frete grátis.
+O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - que ele quer usar para enviar os pacotes vendidos com frete grátis. No carrinho, a estimativa de entrega será a mesma do método escolhido.
