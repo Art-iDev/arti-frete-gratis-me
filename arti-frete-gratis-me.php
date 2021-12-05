@@ -21,9 +21,9 @@ add_action( 'arti_mpme_init', function(){
 
 add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
 
-    $free_sipping_method = apply_filters( 'arti_frete_gratis_me_metodo', 'free_shipping' );
+    $free_sipping_methods = arti_fgme_get_accepted_methods();
 
-    if( $free_sipping_method === $method ){
+    if( in_array( $method, $free_sipping_methods ) ){
         return true;
     }
 
@@ -52,16 +52,17 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
     $methods = wp_list_pluck( $rates, 'method_id' );
 
-    $free_sipping_method = apply_filters( 'arti_frete_gratis_me_metodo', 'free_shipping' );
+    $free_sipping_methods = arti_fgme_get_accepted_methods();
 
     $service_id = 0;
-
 
     if( $vendor_service_id = get_user_meta( $package['vendor_id'] ?? 0, '_me_vendor_free_service', true ) ){
         $service_id = $vendor_service_id;
     }
 
-    if( !in_array( $free_sipping_method, $methods ) || !$service_id ){
+    $cart_has_free_shipping = (bool)count( array_intersect( $free_sipping_methods, $methods ) );
+
+    if( !$cart_has_free_shipping || !$service_id ){
         return $rates;
     }
 
@@ -72,7 +73,7 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
         $rate_meta_data = $rate->get_meta_data();
 
-        if( $free_sipping_method === $rate->get_method_id() ){
+        if( in_array( $rate->get_method_id(), $free_sipping_methods ) ){
             $vendor_rate = &$rate;
         } else {
 
@@ -100,3 +101,7 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
     return $rates;
 
 }, 15, 2 );
+
+function arti_fgme_get_accepted_methods(){
+    return apply_filters( 'arti_frete_gratis_me_metodos', [ 'free_shipping' ] );
+}
