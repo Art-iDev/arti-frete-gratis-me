@@ -6,9 +6,9 @@ Ofereça frete grátis e permita que seus vendedores gerem etiquetas com [Art-i 
 
 ### Instalação
 
-A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.1.1/arti-frete-gratis-me-0.1.1.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
+A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.2.0/arti-frete-gratis-me-0.2.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
 
-Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.1.1/arti-frete-gratis-me-0.1.1.zip --activate`
+Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.2.0/arti-frete-gratis-me-0.2.0.zip --activate`
 
 ### Admin
 
@@ -16,7 +16,7 @@ Crie uma regra ou cupom de frete grátis normalmente.
 
 ### Vendedor
 
-O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - que ele quer usar para enviar os pacotes vendidos com frete grátis. No carrinho, a estimativa de entrega será a mesma do método escolhido.
+O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - ele quer usar para enviar os pacotes vendidos com frete grátis. No carrinho, a estimativa de entrega será a mesma do método escolhido.
 
 Para esconder os demais métodos e exibir somente o frete grátis, use o seguinte filtro:
 ```
