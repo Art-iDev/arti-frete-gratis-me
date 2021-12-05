@@ -5,7 +5,7 @@
  * Plugin URI: https://art-idesenvolvimento.com.br
  * Author: Luis Eduardo Braschi
  * Author URI: https://art-idesenvolvimento.com.br
- * Version: 0.1.1
+ * Version: 0.2.0
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: Text Domain
