@@ -6,9 +6,9 @@ Ofereça frete grátis e permita que seus vendedores gerem etiquetas com [Art-i 
 
 ### Instalação
 
-A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.1.1/arti-frete-gratis-me-0.1.1.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
+A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.2.0/arti-frete-gratis-me-0.2.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
 
-Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.1.1/arti-frete-gratis-me-0.1.1.zip --activate`
+Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.2.0/arti-frete-gratis-me-0.2.0.zip --activate`
 
 ### Admin
 
