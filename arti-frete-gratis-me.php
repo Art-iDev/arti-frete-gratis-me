@@ -33,7 +33,9 @@ add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
 
 add_filter( 'arti_me_shipping_service_id', function( $service_id, $package ){
 
-    if( $vendor_service_id = get_user_meta( $package['vendor_id'] ?? 0, '_me_vendor_free_service', true ) ){
+    $vendor_id = $package['shipping_item']->get_meta( 'vendor_id', true ) ?? 0;
+
+    if( $vendor_service_id = get_user_meta( $vendor_id, '_me_vendor_free_service', true ) ){
         $service_id = $vendor_service_id;
     }
 
