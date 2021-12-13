@@ -17,6 +17,7 @@ defined( 'ABSPATH' ) || exit;
 
 add_action( 'arti_mpme_init', function(){
     include_once 'fields.php';
+    include_once 'marketplace-functions.php';
 } );
 
 add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
