@@ -29,6 +29,8 @@ add_filter( 'arti_mpme_after_wcmp_shipping_fields', function( $vendor_id ){
 	$vendor_service_id = get_user_meta( $vendor_id ?? 0, '_me_vendor_free_service', true );
 	$services = [ 0 => 'Nenhum' ] + get_companies_list();
 
+	$fields = new WCMp_Frontend_WP_Fields;
+
 	$fields->select_input(
 		[
 			'id' => '_me_vendor_free_service',
