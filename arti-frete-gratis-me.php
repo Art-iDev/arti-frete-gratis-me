@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'arti_mpme_init', function(){
+add_action( 'arti_mpme_provider_loaded', function(){
     include_once 'fields.php';
     include_once 'marketplace-functions.php';
 } );
