@@ -66,6 +66,8 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
         return $rates;
     }
 
+    $free_shipping_rate = null;
+
     foreach( $rates as $key => &$rate ){
 
         $rate_service_id = $rate->get_meta_data()['_service_id'] ?? 0;
@@ -89,8 +91,9 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
         }
 
     }
-
-    $free_shipping_rate->set_label( $free_shipping_label );
+    if( !is_null( $free_shipping_rate ) ){
+        $free_shipping_rate->set_label( $free_shipping_label );
+    }
 
     return $rates;
 
