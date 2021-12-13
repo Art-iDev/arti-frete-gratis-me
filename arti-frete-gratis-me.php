@@ -83,8 +83,6 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
         if( (int) $rate_service_id === (int) $service_id ){
 
             $rate->set_cost( 0 );
-
-            // Let's set it as the first rate later.
             $free_shipping_rate = $rate;
 
         }
