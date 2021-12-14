@@ -1,4 +1,4 @@
-[![Doe com PayPal](https://img.shields.io/badge/paypal-Doe%20com%20paypal-blue?style=for-the-badge&logo=paypal&link=https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)](https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)
+[![Doe com PayPal](https://img.shields.io/badge/paypal-Contribua%20com%20o%20desenvolvimento-blue?style=for-the-badge&logo=paypal&link=https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)](https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)
 
 # Frete grátis para Art-i Melhor Envio/Marketplace
 
