@@ -14,7 +14,7 @@ Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/ar
 
 ### Admin
 
-Crie uma regra ou cupom de frete grátis normalmente.
+Crie uma regra ou cupom de frete grátis pelo WooCommerce ou pelo marketplace.
 
 ### Vendedor
 
