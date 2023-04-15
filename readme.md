@@ -1,6 +1,6 @@
 [![Doe com PayPal](https://img.shields.io/badge/paypal-Contribua%20com%20o%20desenvolvimento-blue?style=for-the-badge&logo=paypal&link=https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)](https://www.paypal.com/donate/?hosted_button_id=TZ984YJ3SJEQA)
 
-[![Ajude a manter plugins gratuitos com Pix](https://img.shields.io/static/v1?style=for-the-badge&logo=pix&color=%2300b7a9&message=Ajude%20a%20manter%20plugins%20gratuitos%20com%20Pix&link=https://nubank.com.br/pagar/16gd05/2YML7GG3gW)](https://nubank.com.br/pagar/16gd05/2YML7GG3gW)
+[![Doe com PayPal](https://img.shields.io/badge/pix-Ajude%20a%20manter%20plugins%20gratuitos%20com%20Pix-blue?style=for-the-badge&logo=pix&color=%2300b7a9&link=https://nubank.com.br/pagar/16gd05/2YML7GG3gW)](https://nubank.com.br/pagar/16gd05/2YML7GG3gW)
 
 # Frete grátis para Art-i Melhor Envio/Marketplace
 
