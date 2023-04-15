@@ -32,6 +32,18 @@ add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
 
 }, 10, 2 );
 
+add_filter( 'arti_me_shipping_service_id', function( $service_id, $package ){
+
+    $vendor_id = $package['shipping_item']->get_meta( 'vendor_id', true ) ?? 0;
+
+    if( $vendor_service_id = get_user_meta( $vendor_id, '_me_vendor_free_service', true ) ){
+        $service_id = $vendor_service_id;
+    }
+
+    return $service_id;
+
+}, 10, 2 );
+
 add_filter( 'arti_mpme_vendor_fields_to_save', function( $fields ){
     $fields[] = '_me_vendor_free_service';
     return $fields;
@@ -50,7 +62,7 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
     $cart_has_free_shipping = arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods );
 
-    if( !$cart_has_free_shipping || !$service_id ){
+    if( !$cart_has_free_shipping || !wc_string_to_bool( $service_id ) ){
         return $rates;
     }
 
@@ -75,6 +87,10 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
             $rate->set_cost( 0 );
             $free_shipping_rate = $rate;
+
+        } elseif( apply_filters( 'arti_frete_gratis_me_esconder_outros_metodos', false ) ){
+
+            unset( $rates[$key] );
 
         }
 
