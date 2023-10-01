@@ -20,7 +20,11 @@ Crie uma regra ou cupom de frete grátis pelo WooCommerce ou pelo marketplace.
 
 ### Vendedor
 
-O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - ele quer usar para enviar os pacotes vendidos com frete grátis. No carrinho, a estimativa de entrega será a mesma do método escolhido.
+O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo que ele escolha qual dos métodos do Melhor Envio - Correios, JadLog, LATAM etc - ele quer usar para enviar os pacotes vendidos com frete grátis, ou seja, qual etiqueta será criada no seu painel. No carrinho, a estimativa de entrega será a mesma do método escolhido.
+
+![image](https://github.com/Art-iDev/arti-frete-gratis-me/assets/700448/674bc1b9-d509-4291-9139-409b5be9e9c9)
+
+_Exemplo do campo numa instalação Dokan padrão_
 
 Para esconder os demais métodos e exibir somente o frete grátis, use o seguinte filtro:
 ```
