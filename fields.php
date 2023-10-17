@@ -1,9 +1,7 @@
 <?php
 
-use function Arti\ME\functions\get_companies_list;
-
 function get_services_list(){
-	return [ 0 => 'Nenhum' ] + get_companies_list();
+	return [ 0 => 'Nenhum' ] + Arti\ME\functions\get_services_list();
 }
 
 add_filter( 'arti_mpme_wcfm_vendor_shipping_fields', function( $fields, $vendor_id ){
