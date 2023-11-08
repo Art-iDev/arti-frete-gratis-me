@@ -8,15 +8,15 @@ Ofereça frete grátis e permita que seus vendedores gerem etiquetas com [Art-i 
 
 ## Como usar
 
-### Instalação
-
-A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.4.0/arti-frete-gratis-me-0.4.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
-
-Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.4.0/arti-frete-gratis-me-0.4.0.zip --activate`
-
 ### Admin
 
-Crie uma regra ou cupom de frete grátis pelo WooCommerce ou pelo marketplace.
+Antes de tudo, crie e teste uma regra ou cupom de frete grátis pelo WooCommerce ou pelo marketplace (consulte o manual do seu marketplace para saber como adicionar a regra por vendedor).
+
+### Instalação
+
+A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.6.0/arti-frete-gratis-me-0.6.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
+
+Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.6.0/arti-frete-gratis-me-0.6.0.zip --activate`
 
 ### Vendedor
 
