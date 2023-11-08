@@ -1,14 +1,10 @@
 <?php
 
-use function Arti\ME\functions\get_companies_list;
-
-function get_services_list(){
-	return [ 0 => 'Nenhum' ] + get_companies_list();
+function get_available_services_list(){
+	return [ 0 => 'Nenhum' ] + Arti\ME\functions\get_services_list();
 }
 
-add_filter( 'arti_mpme_after_wcfm_shipping_fields', function( $vendor_id ){
-
-	global $WCFM;
+add_filter( 'arti_mpme_wcfm_vendor_shipping_fields', function( $fields, $vendor_id ){
 
 	$vendor_service_id = get_user_meta( $vendor_id ?? 0, '_me_vendor_free_service', true );
 
@@ -20,16 +16,12 @@ add_filter( 'arti_mpme_after_wcfm_shipping_fields', function( $vendor_id ){
 		'value' => $vendor_service_id,
 		'class' => 'wcfm-select wcfm_ele',
 		'label_class' => 'wcfm_title wcfm_ele',
-		'options' => get_services_list(),
+		'options' => get_available_services_list(),
 		'desc_class' => 'wcfm_page_options_desc',
 		'desc' => 'Esse serviço será usado no momento de gerar etiquetas.',
 	];
 
-	?>
-	<div class="store_address">
-		<?php $WCFM->wcfm_fields->wcfm_generate_form_field( $fields ); ?>
-	</div>
-	<?php
+	return $fields;
 
 }, 10, 2 );
 
@@ -45,7 +37,7 @@ add_filter( 'arti_mpme_after_mvx_shipping_fields', function( $vendor_id ){
 	    </label>
 	    <div class="col-md-6 col-sm-9">
 	        <select class="form-control" id="_me_vendor_free_service" name="_me_vendor_free_service">
-	            <?php foreach( get_services_list() as $service_id => $service ):?>
+	            <?php foreach( get_available_services_list() as $service_id => $service ):?>
 	                <option <?php selected( $service_id, $vendor_service_id ); ?> value=<?php echo esc_attr( $service_id );?>>
 	                    <?php echo esc_html( $service ); ?>
 	                </option>
@@ -71,7 +63,7 @@ add_filter( 'arti_mpme_after_wcmp_shipping_fields', function( $vendor_id ){
 			'name' => '_me_vendor_free_service',
 			'label' => 'Serviço a ser usado em caso de frete grátis',
 			'value' => $vendor_service_id,
-			'options' => get_services_list(),
+			'options' => get_available_services_list(),
 			'desc' => 'Esse serviço será usado no momento de gerar etiquetas.',
 		]
 	);
@@ -89,7 +81,7 @@ add_filter( 'arti_mpme_after_dokan_shipping_fields', function( $vendor_id ){
 		</label>
 		<div class="dokan-w5 dokan-text-left">
 			<select class="dokan-form-control" id="_me_vendor_free_service" name="_me_vendor_free_service">
-				<?php foreach( get_services_list() as $service_id => $service ):?>
+				<?php foreach( get_available_services_list() as $service_id => $service ):?>
 					<option <?php selected( $service_id, $vendor_service_id ); ?> value=<?php echo esc_attr( $service_id );?>>
 						<?php echo esc_html( $service ); ?>
 					</option>
