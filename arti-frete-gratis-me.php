@@ -62,13 +62,22 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
     $cart_has_free_shipping = arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods );
 
-    if( !$cart_has_free_shipping || !wc_string_to_bool( $service_id ) ){
+    if( !$cart_has_free_shipping || empty( $service_id ) ){
         return $rates;
     }
 
     $free_shipping_rate = null;
+    $cheapest_cost = PHP_INT_MAX;
+    $current_cost = 0;
 
     foreach( $rates as $key => &$rate ){
+
+        $current_cost = $rate->get_cost();
+
+        if( $current_cost < $cheapest_cost && $rate->get_cost() > 0 ){
+            $cheapest_cost = $current_cost;
+            $cheapest_rate = clone $rate;
+        }
 
         $rate_service_id = $rate->get_meta_data()['_service_id'] ?? 0;
 
@@ -95,8 +104,13 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
         }
 
     }
+
     if( !is_null( $free_shipping_rate ) ){
         $free_shipping_rate->set_label( $free_shipping_label );
+    } elseif( apply_filters( 'arti_frete_gratis_me_usar_cotacao_mais_barata', true ) ){
+        $cheapest_rate->set_label( $free_shipping_label );
+        $cheapest_rate->set_cost( 0 );
+        $rates[$cheapest_rate->get_id()] = $cheapest_rate;
     }
 
     return $rates;
