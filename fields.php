@@ -4,7 +4,9 @@ function get_available_services_list(){
 	return [ 0 => 'Nenhum' ] + Arti\ME\functions\get_services_list();
 }
 
-add_filter( 'arti_mpme_wcfm_vendor_shipping_fields', function( $fields, $vendor_id ){
+add_filter( 'arti_mpme_after_wcfm_shipping_fields', function( $vendor_id ){
+
+	global $WCFM;
 
 	$vendor_service_id = get_user_meta( $vendor_id ?? 0, '_me_vendor_free_service', true );
 
@@ -21,7 +23,16 @@ add_filter( 'arti_mpme_wcfm_vendor_shipping_fields', function( $fields, $vendor_
 		'desc' => 'Esse serviço será usado no momento de gerar etiquetas.',
 	];
 
-	return $fields;
+	?>
+	<div class="wcfm_clearfix"></div>
+	<div class="store_address">
+	<?php
+
+	$WCFM->wcfm_fields->wcfm_generate_form_field( $fields );
+
+	?>
+	</div>
+	<?php
 
 }, 10, 2 );
 
