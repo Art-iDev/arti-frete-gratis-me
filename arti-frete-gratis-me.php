@@ -107,7 +107,7 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
     if( !is_null( $free_shipping_rate ) ){
         $free_shipping_rate->set_label( $free_shipping_label );
-    } elseif( apply_filters( 'arti_frete_gratis_me_usar_cotacao_mais_barata', true ) ){
+    } elseif( apply_filters( 'arti_frete_gratis_me_usar_cotacao_mais_barata', false ) ){
         $cheapest_rate->set_label( $free_shipping_label );
         $cheapest_rate->set_cost( 0 );
         $rates[$cheapest_rate->get_id()] = $cheapest_rate;
