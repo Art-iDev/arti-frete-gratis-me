@@ -20,17 +20,6 @@ add_action( 'arti_mpme_provider_loaded', function(){
     include_once 'marketplace-functions.php';
 } );
 
-add_filter('arti_me_is_melhorenvio_method', function( $is_me_method, $method ){
-
-    $free_shipping_methods = arti_fgme_get_accepted_methods();
-
-    if( in_array( $method, $free_shipping_methods ) ){
-        return true;
-    }
-
-    return $is_me_method;
-
-}, 10, 2 );
 
 add_filter( 'arti_me_shipping_service_id', function( $service_id, $package ){
 
