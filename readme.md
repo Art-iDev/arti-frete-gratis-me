@@ -14,9 +14,9 @@ Antes de tudo, crie e teste uma regra ou cupom de frete grátis pelo WooCommerce
 
 ### Instalação
 
-A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.6.0/arti-frete-gratis-me-0.6.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
+A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.8.0/arti-frete-gratis-me-0.8.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
 
-Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.6.0/arti-frete-gratis-me-0.6.0.zip --activate`
+Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.8.0/arti-frete-gratis-me-0.8.0.zip --activate`
 
 ### Vendedor
 
@@ -31,4 +31,11 @@ Para esconder os demais métodos e exibir somente o frete grátis, use o seguint
 <?php
 
 add_filter( 'arti_frete_gratis_me_esconder_outros_metodos', '__return_true' );
+```
+
+Pode ocorrer de a cotação selecionada pelo vendedor não ser retornada pela API do Melhor Envio devido a regras das transportadoras, então é possível usar o seguinte filtro para que seja usada a cotação mais barata retornada:
+```
+<?php
+
+add_filter( 'arti_frete_gratis_me_usar_cotacao_mais_barata', '__return_true' );
 ```
