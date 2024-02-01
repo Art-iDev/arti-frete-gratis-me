@@ -24,9 +24,10 @@ add_action( 'arti_mpme_provider_loaded', function(){
 
 add_filter( 'arti_me_shipping_service_id', function( $service_id, $package ){
 
+    $method_id = $package['shipping_item']->get_method_id();
     $vendor_id = $package['shipping_item']->get_meta( 'vendor_id', true ) ?? 0;
 
-    if( $vendor_service_id = get_user_meta( $vendor_id, '_me_vendor_free_service', true ) ){
+    if( 'free_shipping' === $method_id && $vendor_service_id = get_user_meta( $vendor_id, '_me_vendor_free_service', true ) ){
         $service_id = $vendor_service_id;
     }
 
