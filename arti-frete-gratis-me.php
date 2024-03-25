@@ -130,12 +130,12 @@ function arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods ){
  */
 function arti_fgme_cart_has_melhorenvio( $rates ){
 
-    foreach( $rates as $method ){
-        if( is_melhorenvio_method( $method->get_method_id() ) ){
-            return true;
-        }
-    }
+	foreach( $rates as $method ){
+		if( is_melhorenvio_method( $method->get_method_id() ) ){
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 
 }
