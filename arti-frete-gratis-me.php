@@ -17,9 +17,14 @@ use function Arti\ME\functions\is_melhorenvio_method;
 
 defined( 'ABSPATH' ) || exit;
 
+define( 'ARTI_FGME_PLUGIN',  __FILE__ );
+define( 'ARTI_FGME_BASENAME', plugin_basename( __FILE__ ) );
+define( 'ARTI_FGME_DIR', dirname( __FILE__ ) );
+define( 'ARTI_FGME_SLUG', 'arti-frete-gratis-me' );
+
 add_action( 'arti_mpme_provider_loaded', function(){
-	include_once 'fields.php';
-	include_once 'marketplace-functions.php';
+    include_once ARTI_FGME_DIR . '/fields.php';
+    include_once ARTI_FGME_DIR . '/marketplace-functions.php';
 } );
 
 add_filter( 'arti_mpme_vendor_fields_to_save', function( $fields ){
