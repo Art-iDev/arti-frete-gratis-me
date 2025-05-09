@@ -26,6 +26,8 @@ O plugin adicionará um campo ao painel do Melhor Envio do vendedor permitindo q
 
 _Exemplo do campo numa instalação Dokan padrão_
 
+### Avançado (opcional)
+
 Para esconder os demais métodos e exibir somente o frete grátis, use o seguinte filtro:
 ```
 <?php
