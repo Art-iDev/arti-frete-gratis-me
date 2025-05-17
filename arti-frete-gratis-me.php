@@ -23,8 +23,8 @@ define( 'ARTI_FGME_DIR', dirname( __FILE__ ) );
 define( 'ARTI_FGME_SLUG', 'arti-frete-gratis-me' );
 
 add_action( 'arti_mpme_provider_loaded', function(){
-    include_once ARTI_FGME_DIR . '/fields.php';
-    include_once ARTI_FGME_DIR . '/marketplace-functions.php';
+	include_once ARTI_FGME_DIR . '/fields.php';
+	include_once ARTI_FGME_DIR . '/marketplace-functions.php';
 } );
 
 add_filter( 'arti_mpme_vendor_fields_to_save', function( $fields ){
@@ -42,7 +42,6 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
 	$free_shipping_methods = arti_fgme_get_accepted_methods();
 	$methods = wp_list_pluck( $rates, 'method_id' );
-
 	$cart_has_free_shipping = arti_fgme_cart_has_free_shipping( $free_shipping_methods, $methods );
 
 	$cart_has_me = arti_fgme_cart_has_melhorenvio( $rates );
@@ -76,7 +75,8 @@ add_filter( 'woocommerce_package_rates', function( $rates, $package ){
 
 		if(
 			in_array( $rate->get_method_id(), $free_shipping_methods ) ||
-			in_array( $method_id, $free_shipping_methods )
+			in_array( $method_id, $free_shipping_methods ) ||
+			$rate->get_cost() === 0
 		){
 
 			$free_shipping_label = $rate->get_label();
