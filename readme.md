@@ -14,7 +14,7 @@ Antes de tudo, crie e teste uma regra ou cupom de frete grátis pelo WooCommerce
 
 ### Instalação
 
-A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.10.0/arti-frete-gratis-me-0.10.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
+A instalação é feita com o pacote ZIP disponível [aqui](https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.11.0/arti-frete-gratis-me-0.11.0.zip). Após o download, basta enviar o arquivo normalmente no painel administrativo.
 
 Ou usando a ferramenta WP-CLI: `wp plugin install https://github.com/Art-iDev/arti-frete-gratis-me/releases/download/v0.10.0/arti-frete-gratis-me-0.10.0.zip --activate`
 
